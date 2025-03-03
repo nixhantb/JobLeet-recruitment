@@ -6,6 +6,7 @@ namespace JobLeet.WebApi.JobLeet.Core.Interfaces.Jobs.V1
     public interface IApplicationRepository : IRepository<Application, ApplicationModel>
     {
         Task<Application> ApplyForJobAsync(string seekerId, string jobId, string companyId);
+        Task<ApplicationModel> GetApplicationBySeekersId(string seekerId);
         Task<Application> UpdateApplicationStatusAsync(string applicationId, Status status);
     }
 }
