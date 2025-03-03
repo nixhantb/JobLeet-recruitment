@@ -17,6 +17,24 @@ namespace JobLeet.WebApi.JobLeet.Api.Controllers.Job.V1
         )
             : base(applicationService, validator) { }
 
+        [HttpGet("seekers/{seekerId}")]
+        public async Task<IActionResult> GetBySeekersIdAsync([FromRoute] string seekerId)
+        {
+            try
+            {
+                var applicationBySeekersId = await _service.GetApplicationBySeekersId(seekerId);
+
+                return Ok(applicationBySeekersId);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(
+                    500,
+                    new { Error = "Internal Server Error", Message = ex.Message }
+                );
+            }
+        }
+
         [HttpPost("apply")]
         public async Task<IActionResult> ApplyForJobAsync(
             [FromQuery] string seekerId,

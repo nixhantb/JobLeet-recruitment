@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JobLeet.WebApi.JobLeet.Api.Controllers.Job.V1
 {
-    [Authorize]
+    // [Authorize]
     [Route("api/v1/jobs")]
     [ApiController]
     public class JobController : BaseApiController<JobEntity, JobModel, IJobService>

@@ -205,6 +205,47 @@ namespace JobLeet.WebApi.JobLeetInfrastructure.Repositories.Companies.V1
             }
         }
 
+        public async Task<ApplicationModel> GetApplicationBySeekersId(string seekerId)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(seekerId))
+                {
+                    throw new ArgumentException("Seeker ID cannot be null or empty.");
+                }
+
+                var entities = await _dbContext
+                    .Applications.Include(p => p.Company)
+                    .ThenInclude(p => p.Profile)
+                    .Include(p => p.Company)
+                    .ThenInclude(p => p.Profile)
+                    .ThenInclude(p => p.CompanyAddress)
+                    .Include(p => p.Company)
+                    .ThenInclude(p => p.Profile)
+                    .ThenInclude(p => p.ContactEmail)
+                    .Include(p => p.Company)
+                    .ThenInclude(p => p.Profile)
+                    .ThenInclude(p => p.ContactPhone)
+                    .Include(p => p.Company)
+                    .ThenInclude(p => p.Profile)
+                    .ThenInclude(p => p.IndustryTypes)
+                    .Include(j => j.Jobs)
+                    .ThenInclude(j => j.JobAddress)
+                    .Include(j => j.ApplicationDate)
+                    .Include(j => j.Status)
+                    .FirstOrDefaultAsync(a => a.SeekerId == seekerId);
+
+                return ApplicationMapper.ToApplicationModel(entities);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(
+                    $"Error retrieving applications for Seeker ID {seekerId}: {ex.Message}",
+                    ex
+                );
+            }
+        }
+
         public Task<Application> UpdateApplicationStatusAsync(string applicationId, Status status)
         {
             throw new NotImplementedException();
