@@ -46,7 +46,7 @@ namespace JobLeet.WebApi.JobLeet.Core.Services
             return await _applicationRepository.GetAllAsync();
         }
 
-        public async Task<ApplicationModel> GetApplicationBySeekersId(string seekerId)
+        public async Task<List<ApplicationModel>> GetApplicationBySeekersId(string seekerId)
         {
             var applicationBySeekersId = await _applicationRepository.GetApplicationBySeekersId(
                 seekerId

@@ -205,7 +205,7 @@ namespace JobLeet.WebApi.JobLeetInfrastructure.Repositories.Companies.V1
             }
         }
 
-        public async Task<ApplicationModel> GetApplicationBySeekersId(string seekerId)
+        public async Task<List<ApplicationModel>> GetApplicationBySeekersId(string seekerId)
         {
             try
             {
@@ -233,9 +233,10 @@ namespace JobLeet.WebApi.JobLeetInfrastructure.Repositories.Companies.V1
                     .ThenInclude(j => j.JobAddress)
                     .Include(j => j.ApplicationDate)
                     .Include(j => j.Status)
-                    .FirstOrDefaultAsync(a => a.SeekerId == seekerId);
+                    .Where(a => a.SeekerId == seekerId)
+                    .ToListAsync();
 
-                return ApplicationMapper.ToApplicationModel(entities);
+                return entities.Select(ApplicationMapper.ToApplicationModel).ToList();
             }
             catch (Exception ex)
             {
