@@ -16,9 +16,6 @@
 # Introduction
 
 **Job Leet** is the smart recruitment platform designed to transform how job seekers and recruiters and Companies connect.  
-
-
-![logo](https://github.com/nixhantb/jobleet-ui/blob/main/app/assets/seekersPage.png?raw=true)
 ## **Features**
 
 
