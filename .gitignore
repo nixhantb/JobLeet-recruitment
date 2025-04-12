@@ -48,6 +48,3 @@ artifacts/
 
 # Ignore the .env file
 .env
-
-#Ignore File holding secrects
-jwtkey.key
