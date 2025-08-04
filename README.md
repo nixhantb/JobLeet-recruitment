@@ -1,7 +1,7 @@
 
 # JobLeet – Talent Intelligence Platform
 
-## ❗ Active Development (WORK IN PROGRESS)
+## ❗❗❗ Active Development (WORK IN PROGRESS)
 
 [![Build status](https://ci.appveyor.com/api/projects/status/m3tg2p3igoppg3eq?svg=true)](https://ci.appveyor.com/project/nixhantb/Recruitment-erp)
 [![CodeQL](https://github.com/nixhantb/Recruitment-erp/actions/workflows/codeql.yml/badge.svg)](https://github.com/nixhantb/Recruitment-erp)
@@ -31,7 +31,7 @@ Modern recruitment is broken.
 * **Traditional job boards overwhelm**  quantity over quality, and no insight into who’s real.
 
 Recruiters don’t need more applicants.
-They need **clarity**, **truth**, and **fit** — before wasting hours screening.
+They need **clarity**, **truth**, and **fit** , before wasting hours screening.
 
 ---
 
