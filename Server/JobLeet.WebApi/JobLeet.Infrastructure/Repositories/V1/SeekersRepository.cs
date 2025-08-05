@@ -6,7 +6,6 @@ using JobLeet.WebApi.JobLeet.Core.Interfaces.Seekers.V1;
 using JobLeet.WebApi.JobLeet.Infrastructure.Data.Contexts;
 using JobLeet.WebApi.JobLeet.Infrastructure.Data.Contexts.V1.Identity;
 using JobLeet.WebApi.JobLeet.Mappers.V1;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
