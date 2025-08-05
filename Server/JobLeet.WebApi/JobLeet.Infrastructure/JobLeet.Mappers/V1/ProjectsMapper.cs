@@ -5,36 +5,40 @@ namespace JobLeet.WebApi.JobLeet.Mappers.V1
 {
     public static class ProjectsMapper
     {
-        public static Project ToProjectDatabase(Project entity)
+        public static List<Project> ToProjectDatabase(List<Project> entity)
         {
-            return new Project
-            {
-                Id = entity.Id,
-                Title = entity.Title,
-                Responsibilities = entity.Responsibilities,
-                TechnologiesUsed = entity.TechnologiesUsed,
-                Role = entity.Role,
-                StartDate = entity.StartDate,
-                EndDate = entity.EndDate,
-                ProjectUrl = entity.ProjectUrl,
-                GitHubUrl = entity.ProjectUrl,
-            };
+            return entity
+                .Select(p => new Project
+                {
+                    Id = p.Id,
+                    Title = p.Title,
+                    Responsibilities = p.Responsibilities,
+                    TechnologiesUsed = p.TechnologiesUsed,
+                    Role = p.Role,
+                    StartDate = p.StartDate,
+                    EndDate = p.EndDate,
+                    ProjectUrl = p.ProjectUrl,
+                    GitHubUrl = p.GitHubUrl,
+                })
+                .ToList();
         }
 
-        public static ProjectModel ToProjectModel(Project model)
+        public static List<ProjectModel> ToProjectModel(List<Project> model)
         {
-            return new ProjectModel
-            {
-                Id = model.Id,
-                Title = model.Title,
-                Responsibilities = model.Responsibilities,
-                TechnologiesUsed = model.TechnologiesUsed,
-                Role = model.Role,
-                StartDate = model.StartDate,
-                EndDate = model.EndDate,
-                ProjectUrl = model.ProjectUrl,
-                GitHubUrl = model.ProjectUrl,
-            };
+            return model
+                .Select(p => new ProjectModel
+                {
+                    Id = p.Id,
+                    Title = p.Title,
+                    Responsibilities = p.Responsibilities,
+                    TechnologiesUsed = p.TechnologiesUsed,
+                    Role = p.Role,
+                    StartDate = p.StartDate,
+                    EndDate = p.EndDate,
+                    ProjectUrl = p.ProjectUrl,
+                    GitHubUrl = p.GitHubUrl,
+                })
+                .ToList();
         }
     }
 }

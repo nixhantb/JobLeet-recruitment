@@ -6,7 +6,9 @@ using JobLeet.WebApi.JobLeet.Core.Interfaces.Seekers.V1;
 using JobLeet.WebApi.JobLeet.Infrastructure.Data.Contexts;
 using JobLeet.WebApi.JobLeet.Infrastructure.Data.Contexts.V1.Identity;
 using JobLeet.WebApi.JobLeet.Mappers.V1;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 namespace JobLeet.WebApi.JobLeet.Infrastructure.Repositories.Seekers.V1
 {
@@ -58,6 +60,11 @@ namespace JobLeet.WebApi.JobLeet.Infrastructure.Repositories.Seekers.V1
 
                 var seekersResponse = SeekersMapper.ToSeekerModel(seekersEntity);
                 return seekersResponse;
+            }
+            catch (DbUpdateException dbEx)
+                when (dbEx.InnerException is PostgresException pgEx && pgEx.SqlState == "23505")
+            {
+                throw new Exception("Seeker already exists with the same ID.", dbEx);
             }
             catch (Exception ex)
             {

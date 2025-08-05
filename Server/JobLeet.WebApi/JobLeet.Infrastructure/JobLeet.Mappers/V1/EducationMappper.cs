@@ -5,30 +5,34 @@ namespace JobLeet.WebApi.JobLeet.Mappers.V1
 {
     public static class EducationMapper
     {
-        public static Education ToEducationDatabase(Education entity)
+        public static List<Education> ToEducationDatabase(List<Education> entity)
         {
-            return new Education
-            {
-                Id = entity.Id,
-                Degree = entity.Degree,
-                Major = entity.Major,
-                Institution = entity.Institution,
-                GraduationDate = entity.GraduationDate,
-                Cgpa = entity.Cgpa,
-            };
+            return entity
+                .Select(e => new Education
+                {
+                    Id = e.Id,
+                    Degree = e.Degree,
+                    Major = e.Major,
+                    Institution = e.Institution,
+                    GraduationDate = e.GraduationDate,
+                    Cgpa = e.Cgpa,
+                })
+                .ToList();
         }
 
-        public static EducationModel ToEducationModel(Education model)
+        public static List<EducationModel> ToEducationModel(List<Education> model)
         {
-            return new EducationModel
-            {
-                Id = model.Id,
-                Degree = model.Degree,
-                Major = model.Major,
-                Institution = model.Institution,
-                GraduationDate = model.GraduationDate,
-                Cgpa = model.Cgpa,
-            };
+            return model
+                .Select(e => new EducationModel
+                {
+                    Id = e.Id,
+                    Degree = e.Degree,
+                    Major = e.Major,
+                    Institution = e.Institution,
+                    GraduationDate = e.GraduationDate,
+                    Cgpa = e.Cgpa,
+                })
+                .ToList();
         }
     }
 }

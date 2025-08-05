@@ -1,3 +1,4 @@
+using JobLeet.WebApi.JobLeet.Api.Models.Common.V1;
 using JobLeet.WebApi.JobLeet.Api.Models.Seekers.V1;
 using JobLeet.WebApi.JobLeet.Core.Entities.Seekers.V1;
 
@@ -22,6 +23,7 @@ namespace JobLeet.WebApi.JobLeet.Mappers.V1
                     MiddleName = entity.PersonName.MiddleName,
                     LastName = entity.PersonName.LastName,
                 },
+
                 Projects = ProjectsMapper.ToProjectDatabase(entity.Projects),
 
                 Phone = PhoneMapper.ToPhoneDatabase(entity.Phone),
@@ -30,12 +32,17 @@ namespace JobLeet.WebApi.JobLeet.Mappers.V1
                 Education = EducationMapper.ToEducationDatabase(entity.Education),
                 Experience = ExperienceMapper.ToExperienceDatabase(entity.Experience),
                 DateOfBirth = entity.DateOfBirth,
-                Qualifications = new()
-                {
-                    Id = entity.Qualifications.Id,
-                    QualificationType = entity.Qualifications.QualificationType,
-                    QualificationInformation = entity.Qualifications.QualificationInformation,
-                },
+
+                Qualifications = entity
+                    .Qualifications?.Select(q => new Core.Entities.Common.V1.Qualification
+                    {
+                        Id = q.Id,
+                        QualificationType = (Core.Entities.Common.V1.QualificationCategory)
+                            q.QualificationType,
+                        QualificationInformation = q.QualificationInformation,
+                    })
+                    .ToList(),
+
                 ProfileSummary = entity.ProfileSummary,
                 SocialMedias = entity
                     .SocialMedias?.Select(sm => new Core.Entities.Seekers.V1.SocialMedia
@@ -85,21 +92,16 @@ namespace JobLeet.WebApi.JobLeet.Mappers.V1
                         ? ExperienceMapper.ToExperienceModel(model.Experience)
                         : null,
                 DateOfBirth = model.DateOfBirth,
-                Qualifications =
-                    model.Qualifications != null
-                        ? new Api.Models.Common.V1.QualificationModel
-                        {
-                            Id = model.Qualifications.Id,
-                            QualificationType =
-                                model.Qualifications.QualificationType != null
-                                    ? (Api.Models.Common.V1.QualificationCategory)
-                                        model.Qualifications.QualificationType
-                                    : default(Api.Models.Common.V1.QualificationCategory),
-                            QualificationInformation = model
-                                .Qualifications
-                                .QualificationInformation,
-                        }
-                        : null,
+                Qualifications = model
+                    .Qualifications?.Select(q => new QualificationModel
+                    {
+                        Id = q.Id,
+                        QualificationType = (Api.Models.Common.V1.QualificationCategory)
+                            q.QualificationType,
+                        QualificationInformation = q.QualificationInformation,
+                    })
+                    .ToList(),
+
                 ProfileSummary = model.ProfileSummary,
                 SocialMedias =
                     model?.SocialMedias != null

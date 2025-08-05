@@ -34,14 +34,12 @@ namespace JobLeet.WebApi.JobLeet.Core.Validators.Seekers
             RuleFor(seeker => seeker.Education)
                 .NotNull()
                 .WithMessage("Education information is required.")
-                .When(seeker => seeker.Education != null)
-                .SetValidator(new EducationValidator());
+                .ForEach(x => x.SetValidator(new EducationValidator()));
 
             RuleFor(seeker => seeker.Experience)
                 .NotNull()
                 .WithMessage("Experience information is required.")
-                .When(seeker => seeker.Experience != null)
-                .SetValidator(new ExperienceValidator());
+                .ForEach(x => x.SetValidator(new ExperienceValidator()));
 
             RuleFor(seeker => seeker.DateOfBirth)
                 .NotNull()
@@ -54,8 +52,7 @@ namespace JobLeet.WebApi.JobLeet.Core.Validators.Seekers
             RuleFor(seeker => seeker.Qualifications)
                 .NotNull()
                 .WithMessage("Qualifications are required.")
-                .When(seeker => seeker.Qualifications != null)
-                .SetValidator(new QualificationValidator());
+                .ForEach(x => x.SetValidator(new QualificationValidator()));
 
             RuleFor(seeker => seeker.ProfileSummary)
                 .MaximumLength(500)

@@ -5,26 +5,30 @@ namespace JobLeet.WebApi.JobLeet.Mappers.V1
 {
     public static class ExperienceMapper
     {
-        public static Experience ToExperienceDatabase(Experience entity)
+        public static List<Experience> ToExperienceDatabase(List<Experience> entity)
         {
-            return new Experience
-            {
-                Id = entity.Id,
-                Company = CompanyMapper.ToCompanyDataBase(entity.Company),
-                ExperienceLevel = entity.ExperienceLevel,
-                ExperienceDateFrom = entity.ExperienceDateFrom,
-            };
+            return entity
+                .Select(ex => new Experience
+                {
+                    Id = ex.Id,
+                    Company = CompanyMapper.ToCompanyDataBase(ex.Company),
+                    ExperienceLevel = ex.ExperienceLevel,
+                    ExperienceDateFrom = ex.ExperienceDateFrom,
+                })
+                .ToList();
         }
 
-        public static ExperienceModel ToExperienceModel(Experience model)
+        public static List<ExperienceModel> ToExperienceModel(List<Experience> model)
         {
-            return new ExperienceModel
-            {
-                Id = model.Id,
-                CompanyModel = CompanyMapper.ToCompanyModel(model.Company),
-                ExperienceLevel = (Api.Models.Common.V1.ExperienceLevel)model.ExperienceLevel,
-                ExperienceDateTill = model.ExperienceDateTill,
-            };
+            return model
+                .Select(ex => new ExperienceModel
+                {
+                    Id = ex.Id,
+                    CompanyModel = CompanyMapper.ToCompanyModel(ex.Company),
+                    ExperienceLevel = (Api.Models.Common.V1.ExperienceLevel)ex.ExperienceLevel,
+                    ExperienceDateTill = ex.ExperienceDateTill,
+                })
+                .ToList();
         }
     }
 }

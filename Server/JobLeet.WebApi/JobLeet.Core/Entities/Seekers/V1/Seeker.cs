@@ -8,15 +8,15 @@ namespace JobLeet.WebApi.JobLeet.Core.Entities.Seekers.V1
         public Phone? Phone { get; set; }
         public Address? Address { get; set; }
         public Skill? Skills { get; set; }
-        public Education? Education { get; set; }
-        public Experience? Experience { get; set; }
+        public List<Education>? Education { get; set; }
+        public List<Experience>? Experience { get; set; }
         public DateTime? DateOfBirth { get; set; }
-        public Qualification? Qualifications { get; set; }
+        public List<Qualification>? Qualifications { get; set; }
         public string? ProfileSummary { get; set; }
         public List<SocialMedia>? SocialMedias { get; set; }
         public List<string>? Interests { get; set; }
         public List<string>? Achievements { get; set; }
-        public Project? Projects { get; set; }
+        public List<Project>? Projects { get; set; }
     }
 
     public class SocialMedia : BaseEntity
