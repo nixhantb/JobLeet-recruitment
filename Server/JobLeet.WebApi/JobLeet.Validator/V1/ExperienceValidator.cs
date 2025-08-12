@@ -8,11 +8,6 @@ namespace JobLeet.WebApi.JobLeet.Validator
         public ExperienceValidator()
         {
             RuleFor(x => x.ExperienceLevel).IsInEnum().WithMessage("Invalid Experience Level");
-
-            RuleFor(x => x.Company)
-                .NotNull()
-                .WithMessage("Company information is required")
-                .SetValidator(new CompanyValidator());
         }
     }
 }

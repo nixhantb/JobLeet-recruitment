@@ -11,7 +11,8 @@ namespace JobLeet.WebApi.JobLeet.Mappers.V1
                 .Select(ex => new Experience
                 {
                     Id = ex.Id,
-                    Company = CompanyMapper.ToCompanyDataBase(ex.Company),
+                    Company = ex.Company,
+                    Responsibilities = ex.Responsibilities,
                     ExperienceLevel = ex.ExperienceLevel,
                     ExperienceDateFrom = ex.ExperienceDateFrom,
                 })
@@ -24,7 +25,8 @@ namespace JobLeet.WebApi.JobLeet.Mappers.V1
                 .Select(ex => new ExperienceModel
                 {
                     Id = ex.Id,
-                    CompanyModel = CompanyMapper.ToCompanyModel(ex.Company),
+                    CompanyNameModel = ex.Company,
+                    Responsibilities = ex.Responsibilities,
                     ExperienceLevel = (Api.Models.Common.V1.ExperienceLevel)ex.ExperienceLevel,
                     ExperienceDateTill = ex.ExperienceDateTill,
                 })

@@ -1,109 +1,58 @@
+![logo](docs/assets/logo.png)
 
-# JobLeet – Talent Intelligence Platform
-
-## ❗❗❗ Active Development (WORK IN PROGRESS)
-
-[![Build status](https://ci.appveyor.com/api/projects/status/m3tg2p3igoppg3eq?svg=true)](https://ci.appveyor.com/project/nixhantb/Recruitment-erp)
 [![CodeQL](https://github.com/nixhantb/Recruitment-erp/actions/workflows/codeql.yml/badge.svg)](https://github.com/nixhantb/Recruitment-erp)
-
-![GitHub repo size](https://img.shields.io/github/repo-size/nixhantb/Job-Leet-core-recruitment-agency?style=flat-square)
-![GitHub top language](https://img.shields.io/github/languages/top/nixhantb/Recruitment-erp?color=orange&style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/nixhantb/Recruitment-erp?color=success&style=flat-square)
-![GitHub license](https://img.shields.io/badge/license-GPL%20%2B%20CE-FFFF00?style=flat-square)
-[![GitHub Stars](https://img.shields.io/github/stars/nixhantb/Job-Leet-core-recruitment-agency?label=GitHub%20stars&style=social)](https://github.com/nixhantb/Job-Leet-core-recruitment-agency/stargazers/)
-
-
-
 
 # Introduction
 
-> **Not just another job board.**
-> **JobLeet finds real, high-fit talent and filters out the AI hijacked noise.**
+**Job Leet** is the smart recruitment platform designed to transform how job seekers and recruiters and Companies connect.  
 
 
+## **Features**
 
-## ❗ The Problem Today
-
-Modern recruitment is broken.
-
-* **Resume spam is rampant** , most are AI-written, buzzword-stuffed, or misrepresent actual skill.
-* **Cultural misalignment** causes high turnover, recruiters are left guessing at behavior and fit.
-* **Traditional job boards overwhelm**  quantity over quality, and no insight into who’s real.
-
-Recruiters don’t need more applicants.
-They need **clarity**, **truth**, and **fit** , before wasting hours screening.
-
----
-
-## ✅ JobLeet Solves This
+- [x] **Personalized Job Recommendations**: Matches candidates with job openings tailored to their skills, preferences, and career goals.
 
 
-
-## Key Features
-
-### Talent Integrity Engine
-
-* Detects **GPT-generated resumes**, buzzword inflation, and exaggerated claims.
-* Scores candidates on **Resume Authenticity** using AI-based fingerprinting and truth detection.
-
-### CultureMap Behavioral Fit Prediction
-
-* Uses short psychometric assessments to evaluate:
-
-  * Work style
-  * Team compatibility
-  * Risk of early attrition
-* Outputs a **Behavioral Fit Score** personalized to your company culture.
-
-###  Live Talent Pool Intelligence
-
-* Build and maintain a **verified, dynamic pool** of passive and active talent.
-* Track growth, intent to switch, upskilling activity, and readiness over time.
-
-### Smart Shortlisting
-
-* Instantly see **ranked candidates** based on truth score, culture fit, and job readiness.
-* Stop reviewing 100s of resumes. Start reviewing the **right 5.**
-
----
-
-##  Built-In Hiring Infrastructure 
-
-* Intelligent Job Posting
-* Talent Pool
-* Smart Job Portal 
-* Resume Analyzer
-* Interview Scheduling
+- [ ] **Real-Time Notifications**: Keep both recruiters and candidates updated and engaged throughout the recruitment process.
 
 
----
+- [x] **Analytics Dashboard**: Gain valuable insights into recruitment metrics to enhance decision-making and hiring strategies.
 
-## Ideal For:
 
-* Scaling startups tired of wasting time on mis-hires
-* Enterprise HR teams needing better filtering
-* Recruitment agencies wanting more trust with clients
-* Any team hiring for **fit, not just filler**
+- [ ] **Communication System**: Streamline Real time communication between recruiters and candidates for seamless engagement.
 
----
 
-## Tech Stack
+- [ ] **Resume Builder**: Enable job seekers to create professional, standout resumes effortlessly.
 
-* **Backend:** ASP.NET Core
-* **Frontend:** NextJs + Tailwind
-* **Database:** PostgreSQL
-* **ML & AI:** OpenAI, HuggingFace, GPT detection models
-* **Containerized:** Docker, Docker Compose
----
 
-## 📜 License
+- [x] **ERP Solution**: A comprehensive recruitment ERP solution to manage end-to-end hiring processes with ease.
 
-[MIT License](LICENSE)
 
----
+- [ ] **Interview Scheduling**: Simplify interview scheduling with automated tools for recruiters and candidates.
 
-## 👨‍💻 Contribute
 
-We welcome contributions. If you're passionate about fixing hiring at its root, [open an issue](https://github.com/jobleet/issues) or submit a PR.
+- [x] **Role-Based Access Control**: Ensure secure data management with permissions based on user roles (e.g., recruiter, employer, admin).
 
----
+
+- [x] **Job Application Tracking**: Real-time updates for job seekers to track their application status.
+
+
+- [x] **Custom Branding**: Allow employers to personalize their profiles with their company branding.
+
+
+- [x] **Feedback System**: Enable candidates and employers to exchange feedback for a better hiring experience.
+
+
+- [x] **GDPR Compliance**: Ensure data protection and compliance with global regulations.
+
+
+- [x] **Performance Reports**: Generate detailed reports on hiring performance and timelines.
+
+
+- [ ] **Multi-Language Support**: Cater to a global audience with support for multiple languages.
+
+
+- [x] **Talent Pool Management**: Build and manage a database of potential candidates for future roles.
+
+## Documentation
+
+For a complete list of methods and their usage, please refer to the [Api Documentation](https://nixhantb.github.io/Job-Leet-core-recruitment-agency/)

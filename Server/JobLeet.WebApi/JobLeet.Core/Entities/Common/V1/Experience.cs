@@ -8,7 +8,8 @@ namespace JobLeet.WebApi.JobLeet.Core.Entities.Common.V1
     {
         public ExperienceLevel ExperienceLevel { get; set; }
 
-        public Company? Company { get; set; }
+        public string? Company { get; set; }
+        public List<string>? Responsibilities { get; set; }
         public DateTime ExperienceDateFrom { get; set; }
         public DateTime ExperienceDateTill { get; set; }
     }
