@@ -205,27 +205,21 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseRouting();
-
-app.MapControllers();
-
+app.UseMiddleware<ExceptionMiddleware>();
 #region Middleware Configurations
 app.UseHsts();
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
-
-// Enable CORS
-app.UseCors("AllowAll");
-
-// app.UseAuthentication();
-// Enable CORS
-app.UseCors("AllowAll");
+app.MapControllers();
 
 // app.UseMiddleware<SecurityHeaders>();
 // app.UseMiddleware<TotalResponseHeaderCount>();
 app.UseMiddleware<ResourceNotFoundException>();
 
-app.UseMiddleware<ExceptionMiddleware>();
 #endregion
 app.CreateDataBaseTableIfNotPresent();
 app.Run();
